@@ -5,12 +5,11 @@ import (
 	"net/http"
 )
 
-// 处理器
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello World", r.URL.Path)
+func handle(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "hello world", r.URL.Path)
 }
 
 func main() {
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8087", nil)
+	http.HandleFunc("/", handle)
+	http.ListenAndServe(":8085", nil)
 }
